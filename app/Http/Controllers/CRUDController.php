@@ -34,8 +34,8 @@ class CRUDController extends Controller
         $post->title = request()->get('title');
         $post->description = request()->get('description');
         $post->save();
+        DB::table('post_tag')->where('post_id', $id)->delete();
         if (\request()->get('tags') !== null) {
-            DB::table('post_tag')->where('post_id', $id)->delete();
             foreach (\request()->get('tags') as $tag) {
                 DB::table('post_tag')->insert(['post_id' => $post->id, 'tag_id' => $tag]);
             }
