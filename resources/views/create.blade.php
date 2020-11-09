@@ -27,6 +27,7 @@
                     <label for="description"> Description </label>
                     <textarea class="form-control" name="description" id="description" rows="5"></textarea>
                 </div>
+                <label for="tags"> Tags </label>
                 @foreach($tags as $tag)
                     <div class="form-check">
                         <input class="form-check-input" name="tags[]" type="checkbox" value="{{$tag->id}}"
