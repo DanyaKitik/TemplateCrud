@@ -37,7 +37,7 @@
                 </label>
             </div>
         @endforeach
-        <a href="{{ url()->previous() }}" type="submit" class="btn btn-primary">Back</a>
+        <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
         <input type="submit" class="btn btn-primary" value="Update"/>
     </form>
 @endsection

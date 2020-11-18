@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,5 +50,15 @@ class AuthController extends Controller
         };
 
         return redirect($referer);
+    }
+
+    public function show(){
+        $user_id = \auth()->user()->id;
+        $posts = Post::where('user_id', $user_id)
+            ->with('user')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return view('home', ['posts' => $posts]);
     }
 }

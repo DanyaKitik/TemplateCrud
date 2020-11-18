@@ -14,6 +14,11 @@
 <body>
 <div class="container">
     <div class="row">
+        <div class="col">
+            @include('menu')
+        </div>
+    </div>
+    <div class="row">
         <div class="col-9">
             @yield('content')
         </div>
@@ -24,8 +29,8 @@
 
             @auth()
                 <h2>Hi, {{auth()->user()->username}}</h2>
-                <a href="{{route('logout')}}"><p type="submit" class="btn btn-primary">Logout</p></a>
-                <a href="{{route('create')}}"><p type="submit" class="btn btn-primary">Create</p></a>
+                <a href="{{route('logout')}}"><p  class="btn btn-primary">Logout</p></a>
+                <a href="{{route('create')}}"><p  class="btn btn-primary">Create</p></a>
             @endauth
         </div>
     </div>

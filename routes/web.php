@@ -45,4 +45,7 @@ Route::middleware(['auth'])->group(function () {
         ->name('create');
 
     Route::post('/create', \App\Http\Controllers\CRUDController::class . '@create');
+
+    Route::get('my_posts' , \App\Http\Controllers\AuthController::class . '@show')
+        ->name('show');
 });
